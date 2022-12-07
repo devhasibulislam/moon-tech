@@ -23,7 +23,7 @@ const client = new MongoClient(uri, {
 const run = async () => {
   try {
     const db = client.db("moon-tech");
-    const productCollection = db.collection("product");
+    const productCollection = db.collection("products");
     console.log("Moon Tech connected successfully.");
 
     app.get("/products", async (req, res) => {
