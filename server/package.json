@@ -1,0 +1,20 @@
+{
+  "name": "moon-tech",
+  "version": "1.0.0",
+  "description": "Simple demo testing e-commerce website with simple advance technology useReducer hook and Context API in a single file.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "start-dev": "nodemon index.js"
+  },
+  "repository": "https://github.com/hasibulislam999/moon-tech",
+  "author": "Hasibul Islam",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongodb": "^4.12.1"
+  }
+}
