@@ -9,7 +9,7 @@ const ProductProvider = ({ children }) => {
 
   useEffect(() => {
     dispatch({ type: actionTypes.FETCHING_START });
-    fetch("http://localhost:5000/products")
+    fetch("https://moon-tech-ssr.vercel.app/products")
       .then((res) => res.json())
       .then((data) => {
         if (data.status)
