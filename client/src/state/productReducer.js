@@ -4,9 +4,13 @@ export const initializer = {
   loading: false,
   products: [],
   error: false,
+  cart: [],
+  wishlist: [],
 };
 
 export const reducer = (state, action) => {
+  console.log(state);
+
   switch (action.type) {
     case actionTypes.FETCHING_START:
       return {
@@ -26,6 +30,16 @@ export const reducer = (state, action) => {
         ...state,
         loading: false,
         error: true,
+      };
+    case actionTypes.ADD_TO_CART:
+      return {
+        ...state,
+        cart: [...state.cart, action.payload],
+      };
+    case actionTypes.ADD_TO_WISHLIST:
+      return {
+        ...state,
+        wishlist: [...state.wishlist, action.payload],
       };
     default:
       return state;
