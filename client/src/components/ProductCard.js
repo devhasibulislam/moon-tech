@@ -5,17 +5,28 @@ const ProductCard = ({ product }) => {
   return (
     <div
       className="shadow-lg rounded-3xl border  p-3 flex flex-col text-indigo-900"
-      key={product._id}
+      key={product?._id}
     >
       <div className="h-52 w-52 mx-auto">
-        <img src={product.image} alt={product.model} />
+        <img src={product?.image} alt={product?.model} />
       </div>
-      <h1 className="font-bold text-center">{product.model}</h1>
-      <p className="text-center font-semibold mb-3">Rating: {product.rating}</p>
+      <h1
+        className="font-bold text-left overflow-hidden text-ellipsis whitespace-nowrap"
+        title={product?.model}
+      >
+        {product?.model}
+      </h1>
+      <p className="text-center font-semibold mb-3 text-purple-500">
+        Rating: {product?.rating}
+      </p>
       <div className=" flex-1">
         <ul className="space-y-2">
-          {product.keyFeature.map((feature) => {
-            return <li className="text-sm ">{feature}</li>;
+          {product?.keyFeature.map((feature, index) => {
+            return (
+              <li key={index} className="text-sm ">
+                {feature}
+              </li>
+            );
           })}
         </ul>
       </div>
