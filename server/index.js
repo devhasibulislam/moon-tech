@@ -30,8 +30,7 @@ const run = async () => {
       const cursor = productCollection.find({});
       const product = await cursor.toArray();
 
-      // res.send({ status: true, data: product });
-      res.status(200).json({
+      res.status(200).send({
         status: true,
         message: "OK",
         description: "Fetching all products successfully.",
@@ -41,22 +40,25 @@ const run = async () => {
 
     app.post("/product", async (req, res) => {
       const product = req.body;
-
       const result = await productCollection.insertOne(product);
 
-      res.send(result);
+      res.status(201).send({
+        status: true,
+        message: "Created",
+        description: "New product insert successfully.",
+        data: result,
+      });
     });
 
     app.delete("/product/:id", async (req, res) => {
       const id = req.params.id;
-
       const result = await productCollection.deleteOne({ _id: ObjectId(id) });
-      // res.send(result);
-      res.status(201).json({
+
+      res.status(202).send({
         status: true,
-        message: "Created",
-        description: "New product insert successfully.",
-        data: product,
+        message: "Accepted",
+        description: "Remove existing product successfully.",
+        data: result,
       });
     });
   } finally {
